@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Content Catalyst</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+            background: var(--white);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent);
+            padding: 3rem 2rem 2rem;
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .section-divider {
+            height: 6px;
+            background: var(--gradient-blue);
+            margin: 4rem 0;
+            border-radius: var(--radius-sm);
+            transform: scaleX(0);
+            animation: expandWidth 0.8s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .portfolio-category {
+            padding: 4rem 0;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .portfolio-category:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .tech-note {
+            font-size: 1.1rem;
+            color: var(--teal);
+            margin-top: 1rem;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.4s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Masonry-style layout for different image heights */
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-auto-rows: 0;
+                grid-template-rows: masonry;
+            }
+
+            .portfolio-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Enhanced hover effects */
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-blue);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .portfolio-item:hover::before {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Content Catalyst</a>
+            <nav class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="index.html#packages" class="nav-link">Packages</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="index.html#portal" class="nav-link">Portal</a>
+                <a href="#" class="sign-in-btn">Sign In</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Creative Portfolio</h1>
+                <p>Explore our collection of transformative content creation work, from professional headshots to engaging video content.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio-category">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Network</h2>
+                <p class="section-subtitle">A showcase of our professional network and collaborative projects.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/Network-1.png" alt="Network Example 1">
+                    <div class="portfolio-overlay">
+                        <h3>Professional Network</h3>
+                        <p>Building connections that matter</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Network-2.png" alt="Network Example 2">
+                    <div class="portfolio-overlay">
+                        <h3>Industry Leaders</h3>
+                        <p>Collaborating with the best</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Network-3.png" alt="Network Example 3">
+                    <div class="portfolio-overlay">
+                        <h3>Community Growth</h3>
+                        <p>Expanding our reach</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Network-4.png" alt="Network Example 4">
+                    <div class="portfolio-overlay">
+                        <h3>Global Connections</h3>
+                        <p>Worldwide partnerships</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Network-5.png" alt="Network Example 5">
+                    <div class="portfolio-overlay">
+                        <h3>Innovation Hub</h3>
+                        <p>Leading edge collaboration</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Network-6.png" alt="Network Example 6">
+                    <div class="portfolio-overlay">
+                        <h3>Strategic Partnerships</h3>
+                        <p>Building lasting relationships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="portfolio-category">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Image Gen</h2>
+                <p class="section-subtitle">Transform your professional image with our cutting-edge generation technology.</p>
+                <p class="tech-note">We custom train our own models from scratch to ensure they are totally authentic.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/AI-Upgrade-1.png" alt="Image Generation Example 1">
+                    <div class="portfolio-overlay">
+                        <h3>Professional Enhancement</h3>
+                        <p>Tailored to your brand</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/AI-Upgrade-2.png" alt="Image Generation Example 2">
+                    <div class="portfolio-overlay">
+                        <h3>Brand Evolution</h3>
+                        <p>Next-level imagery</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/AI-Upgrade-3.png" alt="Image Generation Example 3">
+                    <div class="portfolio-overlay">
+                        <h3>Visual Innovation</h3>
+                        <p>Cutting-edge results</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/AI-Upgrade-4.png" alt="Image Generation Example 4">
+                    <div class="portfolio-overlay">
+                        <h3>Digital Transformation</h3>
+                        <p>Future-ready imagery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="portfolio-category">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Video Examples</h2>
+                <p class="section-subtitle">Engaging video content that tells your story and connects with your audience.</p>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/your-video-id" title="Professional Introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/your-video-id-2" title="Brand Story" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Image?</h2>
+            <p>Let's create content that truly represents your professional brand.</p>
+            <a href="index.html#packages" class="cta-button">
+                Get Started
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Content Catalyst</h3>
+                    <p>Transforming brands through professional content creation and community support.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#experience">Experience</a></li>
+                        <li><a href="index.html#packages">Packages</a></li>
+                        <li><a href="index.html#portal">Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@contentcatalyst.com</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Content Catalyst. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
