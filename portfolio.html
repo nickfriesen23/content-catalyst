@@ -10,9 +10,10 @@
     <style>
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin: 2rem auto;
+            max-width: 1400px;
         }
 
         .portfolio-item {
@@ -25,6 +26,7 @@
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease forwards;
             background: var(--white);
+            height: fit-content;
         }
 
         .portfolio-item:hover {
@@ -37,6 +39,7 @@
             height: auto;
             display: block;
             transition: transform 0.5s ease;
+            object-fit: cover;
         }
 
         .portfolio-item:hover img {
@@ -79,7 +82,8 @@
             overflow: hidden;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
-            margin: 2rem 0;
+            margin: 2rem auto;
+            max-width: 1000px;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease forwards;
@@ -97,7 +101,8 @@
         .section-divider {
             height: 6px;
             background: var(--gradient-blue);
-            margin: 4rem 0;
+            margin: 4rem auto;
+            max-width: 1400px;
             border-radius: var(--radius-sm);
             transform: scaleX(0);
             animation: expandWidth 0.8s ease forwards;
@@ -109,7 +114,7 @@
         }
 
         .portfolio-category {
-            padding: 4rem 0;
+            padding: 6rem 0;
             opacity: 0;
             animation: fadeIn 0.8s ease forwards;
         }
@@ -121,28 +126,19 @@
         .tech-note {
             font-size: 1.1rem;
             color: var(--teal);
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             font-weight: 500;
             opacity: 0;
             animation: fadeIn 0.8s ease 0.4s forwards;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        /* Masonry-style layout for different image heights */
-        @media (min-width: 768px) {
-            .portfolio-grid {
-                grid-auto-rows: 0;
-                grid-template-rows: masonry;
-            }
-
-            .portfolio-item {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
         }
 
         /* Enhanced hover effects */
@@ -161,6 +157,23 @@
 
         .portfolio-item:hover::before {
             transform: scaleX(1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .portfolio-category {
+                padding: 4rem 0;
+            }
+
+            .section-divider {
+                margin: 3rem auto;
+            }
         }
     </style>
 </head>
@@ -196,42 +209,42 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="images/Network-1.png" alt="Network Example 1">
+                    <img src="images/Network-1.png" alt="Network Example 1" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Professional Network</h3>
                         <p>Building connections that matter</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/Network-2.png" alt="Network Example 2">
+                    <img src="images/Network-2.png" alt="Network Example 2" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Industry Leaders</h3>
                         <p>Collaborating with the best</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/Network-3.png" alt="Network Example 3">
+                    <img src="images/Network-3.png" alt="Network Example 3" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Community Growth</h3>
                         <p>Expanding our reach</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/Network-4.png" alt="Network Example 4">
+                    <img src="images/Network-4.png" alt="Network Example 4" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Global Connections</h3>
                         <p>Worldwide partnerships</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/Network-5.png" alt="Network Example 5">
+                    <img src="images/Network-5.png" alt="Network Example 5" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Innovation Hub</h3>
                         <p>Leading edge collaboration</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/Network-6.png" alt="Network Example 6">
+                    <img src="images/Network-6.png" alt="Network Example 6" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Strategic Partnerships</h3>
                         <p>Building lasting relationships</p>
@@ -252,28 +265,28 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="images/AI-Upgrade-1.png" alt="Image Generation Example 1">
+                    <img src="images/AI-Upgrade-1.png" alt="Image Generation Example 1" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Professional Enhancement</h3>
                         <p>Tailored to your brand</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/AI-Upgrade-2.png" alt="Image Generation Example 2">
+                    <img src="images/AI-Upgrade-2.png" alt="Image Generation Example 2" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Brand Evolution</h3>
                         <p>Next-level imagery</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/AI-Upgrade-3.png" alt="Image Generation Example 3">
+                    <img src="images/AI-Upgrade-3.png" alt="Image Generation Example 3" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Visual Innovation</h3>
                         <p>Cutting-edge results</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="images/AI-Upgrade-4.png" alt="Image Generation Example 4">
+                    <img src="images/AI-Upgrade-4.png" alt="Image Generation Example 4" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Digital Transformation</h3>
                         <p>Future-ready imagery</p>
