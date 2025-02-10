@@ -13,6 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Mobile Navigation
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    let isMenuOpen = false;
+
+    mobileNavToggle.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        mobileNav.classList.toggle('active');
+        mobileNavToggle.innerHTML = isMenuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile nav when clicking a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            isMenuOpen = false;
+        });
+    });
+
     // Pricing toggle functionality
     document.querySelectorAll('.pricing-header').forEach(header => {
         header.addEventListener('click', () => {
