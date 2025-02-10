@@ -4,8 +4,8 @@
     --primary-blue: #3B6E8F;
     --light-blue: #4F8CAF;
     --deep-blue: #2C5269;
-    --gold: #B7860B;
-    --light-gold: #D4A72C;
+    --gold: #F2B705;
+    --light-gold: #FFD447;
     --white: #FDF6E9;
     --off-white: #F5EBD8;
     --light-gray: #F0F4F8;
@@ -49,6 +49,119 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+}
+
+/* Pricing Section */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.pricing-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gradient-blue);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card:hover::before {
+    opacity: 1;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.pricing-name {
+    font-size: 1.75rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pricing-price {
+    font-size: 2.5rem;
+    color: var(--deep-blue);
+    font-weight: 800;
+}
+
+.pricing-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.pricing-features li i {
+    color: var(--gold);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.pricing-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.pricing-button:hover {
+    background: var(--deep-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.pricing-button i {
+    transition: transform 0.3s ease;
+}
+
+.pricing-button:hover i {
+    transform: translateX(5px);
 }
 
 /* Header & Navigation */
@@ -571,7 +684,7 @@ body {
 .cta-section h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1.5rem;
-        color: var(--gold);
+    color: var(--gold);
     font-weight: 800;
 }
 
@@ -770,6 +883,27 @@ body {
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .pricing-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .pricing-name {
+        font-size: 1.5rem;
+    }
+
+    .pricing-price {
+        font-size: 2rem;
+    }
+
+    .pricing-features li {
+        font-size: 1rem;
     }
 }
 

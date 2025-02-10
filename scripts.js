@@ -13,6 +13,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Pricing toggle functionality
+    document.querySelectorAll('.pricing-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const card = header.closest('.pricing-card');
+            const features = card.querySelector('.pricing-features');
+            const toggle = header.querySelector('.pricing-toggle');
+            const toggleText = toggle.querySelector('span');
+            
+            // Close all other cards
+            document.querySelectorAll('.pricing-features.active').forEach(el => {
+                if (el !== features) {
+                    el.classList.remove('active');
+                    const otherToggle = el.closest('.pricing-card').querySelector('.pricing-toggle');
+                    otherToggle.classList.remove('active');
+                    otherToggle.querySelector('span').textContent = 'See what\'s included';
+                }
+            });
+
+            // Toggle current card
+            features.classList.toggle('active');
+            toggle.classList.toggle('active');
+            toggleText.textContent = features.classList.contains('active') ? 'Hide details' : 'See what\'s included';
+        });
+    });
+
     // Scroll reveal animations
     const observerOptions = {
         root: null,
