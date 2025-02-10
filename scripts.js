@@ -1,9 +1,12 @@
 // Content Catalyst - Main JavaScript
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Header scroll effect
+    // Header scroll effect and mobile navigation
     const header = document.querySelector('.header');
     const scrollThreshold = 50;
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    let isMenuOpen = false;
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > scrollThreshold) {
@@ -13,15 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Navigation
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-    let isMenuOpen = false;
-
+    // Mobile Navigation Toggle
     mobileNavToggle.addEventListener('click', () => {
         isMenuOpen = !isMenuOpen;
         mobileNav.classList.toggle('active');
-        mobileNavToggle.innerHTML = isMenuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        mobileNavToggle.innerHTML = isMenuOpen ?
+            '<i class="fas fa-times"></i>' :
+            '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     });
 
     // Close mobile nav when clicking a link
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileNav.classList.remove('active');
             mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
             isMenuOpen = false;
+            document.body.style.overflow = '';
         });
     });
 

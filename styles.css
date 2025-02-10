@@ -807,13 +807,14 @@ body {
 /* Mobile Navigation */
 .mobile-nav-toggle {
     display: none;
+  /* Hidden by default, shown in media query */
     background: none;
-    border: none;
+    border: 2px solid var(--primary-blue);
+    border-radius: var(--radius-sm);
     color: var(--primary-blue);
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
+    padding: 0.75rem;
 }
 
 .mobile-nav {
@@ -823,28 +824,43 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--primary-blue);
-    padding: 5rem 2rem 2rem;
-    z-index: 1000;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    background: var(--deep-blue);
+    padding: 6rem 1.5rem 2rem;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
 }
 
 .mobile-nav.active {
-    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-links {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out 0.1s;
+}
+
+.mobile-nav.active .mobile-nav-links {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .mobile-nav-links {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    text-align: center;
+    padding: 2rem;
 }
 
 .mobile-nav-link {
     color: var(--white);
     text-decoration: none;
     font-size: 1.25rem;
+    text-align: center;
+    background: var(--primary-blue);
     font-weight: 500;
     padding: 0.75rem;
     border-radius: var(--radius-sm);
@@ -852,24 +868,48 @@ body {
 }
 
 .mobile-nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--deep-blue);
 }
 
 .mobile-nav .sign-in-btn {
     background: var(--light-gold);
     color: var(--primary-blue);
+    text-align: center;
     margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
+    .header {
+        position: fixed;
+        background: var(--off-white);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: relative;
+        background: var(--primary-blue);
+        color: var(--white);
+        padding: 0.75rem;
+        border-radius: var(--radius-sm);
+        z-index: 1002;
+    }
+
     .nav-links {
         display: none;
     }
 
     .mobile-nav-toggle,
     .mobile-nav {
-        display: block;
-    }
+ display: block;
+ }
+     .mobile-nav { z-index: 1001;}
 
     
     .section {
