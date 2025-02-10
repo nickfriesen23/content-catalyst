@@ -4,6 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Catalyst - Transform Your Brand Presence</title>
+    <style>
+        /* Host Section Specific Styles */
+        #hosts {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .hosts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .host-card {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 40px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .host-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .host-content {
+            padding: 40px 40px 40px 0;
+        }
+
+        .host-content h3 {
+            font-size: 28px;
+            margin: 0 0 8px 0;
+            color: #2d3748;
+        }
+
+        .host-title {
+            font-size: 18px;
+            color: #4a5568;
+            margin: 0 0 24px 0;
+            font-weight: 500;
+        }
+
+        .host-description p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 16px;
+        }
+
+        .host-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .space-showcase {
+            margin-top: 60px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .space-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .space-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .space-content h3 {
+            font-size: 28px;
+            margin: 0 0 16px 0;
+            color: #2d3748;
+        }
+
+        .space-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+            .host-card {
+                grid-template-columns: 1fr;
+            }
+
+            .host-content {
+                padding: 40px;
+            }
+
+            .space-image {
+                height: 300px;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -50,30 +155,72 @@
     <section id="problem-solution" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">The Content Catalyst Journey</h2>
-                <p class="section-subtitle">A transformative experience combining professional content creation with ongoing support and education.</p>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">A curated content creation experience combining networking, professional media production, and delicious BBQ.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-book-open"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>Pre-Event Preparation</h3>
-                    <p>Comprehensive brand message development, posing and expression coaching, and wardrobe consultation to ensure you're fully prepared for your content creation day.</p>
-                </div>
-                <div class="feature-card">
-                     <div class="feature-icon">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <h3>Production Excellence</h3>
-                    <p>Professional photo sessions, video content creation, and interview recordings, all designed to capture your authentic brand identity and message.</p>
+                    <h3>Network & Connect</h3>
+                    <p>Arrive and enjoy home-smoked BBQ while networking with fellow founders and content creators. Our photographer captures candid social photos throughout this time.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-camera"></i>
                     </div>
-      <h3>Ongoing Support & Growth</h3>
-                                  <p>Content strategy planning, platform optimization, community access, and educational resources to help you succeed long after your session.</p>
+                    <h3>Professional Photos</h3>
+                    <p>Get your dedicated photo session with our photographer, including studio-style headshots and lifestyle shots. Each guest is photographed individually to ensure personalized attention.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Your Content Session</h3>
+                    <p>Choose your style: be interviewed, film ads, or use our teleprompter for pre-determined content. Each guest pre-books a 30-minute slot to ensure a smooth, focused session.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hosts" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Your Hosts</h2>
+                <p class="section-subtitle">Combining expertise in photography, AI, design, and storytelling to create an unforgettable experience.</p>
+            </div>
+            <div class="hosts-grid">
+                <div class="host-card">
+                    <img src="AI-Upgrade-2.png" alt="Nick Friesen" class="host-image">
+                    <div class="host-content">
+                        <h3>Nick Friesen</h3>
+                        <p class="host-title">Founder of The Match Artist</p>
+                        <div class="host-description">
+                            <p>As the founder of <em>The Match Artist</em>, Nick has built a $4M+ revenue company transforming dating profiles through high-end, natural photography. His expertise spans from traditional photography to cutting-edge AI, where he specializes in creating hyper-realistic headshots and branding content.</p>
+                            <p>Beyond the tech world, Nick's passions run deep—from woodworking and welding to mastering the art of smoked barbecue. He's also a musician, finding time for piano and guitar between his creative pursuits.</p>
+                            <p>Understanding the challenges of content creation firsthand, Nick focuses on making the process easier, more efficient, and authentically engaging. Whether through AI innovation, photography expertise, or hands-on production, he helps bring ideas to life without the typical stress and complexity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="host-card">
+                    <img src="Network-4.png" alt="Allie Friesen" class="host-image">
+                    <div class="host-content">
+                        <h3>Allie Friesen</h3>
+                        <p class="host-title">Founder of The Wedding Artist</p>
+                        <div class="host-description">
+                            <p>As the founder of <em>The Wedding Artist</em>, Allie has mastered the art of capturing timeless, authentic moments that tell a couple's unique story. Her passion for design runs deep, encompassing everything from graphic design and color theory to comprehensive brand development.</p>
+                            <p>Currently, Allie is the creative force behind transforming their home into a multi-functional space for events and content creation. Every corner is thoughtfully designed for video shoots, photo sessions, and immersive experiences, combining beauty with purpose.</p>
+                            <p>Her creative spirit extends to hands-on crafts like sewing and upholstery, where she breathes new life into vintage pieces. And while cooking might not be her focus, she brings her perfectionist's eye to baking, particularly in crafting the perfect cookie recipe. In everything she touches—from photography to space design—Allie brings an exceptional level of thoughtfulness and creativity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-showcase">
+                <img src="IMG_5980.jpg" alt="Our Creative Space" class="space-image">
+                <div class="space-content">
+                    <h3>Our Creative Space</h3>
+                    <p>A thoughtfully designed environment where every corner serves as the perfect backdrop for your content creation journey. From cozy interview nooks to professional studio setups, our space is crafted to inspire and elevate your brand story.</p>
                 </div>
             </div>
         </div>
@@ -104,7 +251,7 @@
                                 <li><i class="fas fa-share-alt"></i>Social media photos from the event</li>
                                 <li><i class="fas fa-users"></i>Access to networking and BBQ</li>
                             </ul>
-                    <a href="#" class="pricing-button">
+                    <a href="https://buy.stripe.com/00gg1jbOla9t3MAaEF" class="pricing-button">
                         Choose Launch
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -131,7 +278,7 @@
                                 <li><i class="fas fa-share-alt"></i>Social media photos from the event</li>
                                 <li><i class="fas fa-users"></i>Access to networking and BBQ</li>
                             </ul>
-                    <a href="#" class="pricing-button">
+                    <a href="https://buy.stripe.com/14k7uN3hP5Td2Iw3ce" class="pricing-button">
                         Choose Elevate
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -160,7 +307,7 @@
                                 <li><i class="fas fa-video"></i>B-roll footage captured during the event</li>
                                 <li><i class="fas fa-users"></i>Access to networking and BBQ</li>
                             </ul>
-                    <a href="#" class="pricing-button">
+                    <a href="https://buy.stripe.com/00gcP72dL3L5bf28wz" class="pricing-button">
                         Choose Amplify
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -191,7 +338,7 @@
                                 <li><i class="fas fa-video"></i>B-roll footage captured during the event</li>
                                 <li><i class="fas fa-users"></i>Access to networking and BBQ</li>
                             </ul>
-                    <a href="#" class="pricing-button">
+                    <a href="https://buy.stripe.com/eVa5mF5pX95pgzm4gk" class="pricing-button">
                         Choose Legit
                         <i class="fas fa-arrow-right"></i>
                     </a>
