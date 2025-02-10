@@ -20,9 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavToggle.addEventListener('click', () => {
         isMenuOpen = !isMenuOpen;
         mobileNav.classList.toggle('active');
-        mobileNavToggle.innerHTML = isMenuOpen ?
-            '<i class="fas fa-times"></i>' :
-            '<i class="fas fa-bars"></i>';
+        mobileNavToggle.classList.toggle('active');
         document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     });
 
@@ -30,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileNav.classList.remove('active');
-            mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileNavToggle.classList.remove('active');
             isMenuOpen = false;
             document.body.style.overflow = '';
         });
