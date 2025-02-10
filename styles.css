@@ -60,7 +60,7 @@ body {
 }
 
 .pricing-card {
-    background: var(--white);
+    background: var(--primary-blue);
     border-radius: var(--radius-lg);
     padding: 3rem 2rem;
     box-shadow: var(--shadow-md);
@@ -78,7 +78,7 @@ body {
     left: 0;
     right: 0;
     height: 6px;
-    background: var(--gradient-blue);
+    background: var(--gold);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -86,6 +86,7 @@ body {
 .pricing-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+    background: var(--deep-blue);
 }
 
 .pricing-card:hover::before {
@@ -96,7 +97,7 @@ body {
     text-align: center;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 2px solid var(--light-gray);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .pricing-name {
@@ -108,8 +109,42 @@ body {
 
 .pricing-price {
     font-size: 2.5rem;
-    color: var(--deep-blue);
+    color: var(--white);
     font-weight: 800;
+}
+
+.pricing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pricing-toggle span {
+    color: var(--white);
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.pricing-toggle i {
+    color: var(--gold);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.pricing-toggle:hover span {
+    opacity: 1;
+}
+
+.pricing-toggle.active i {
+    transform: rotate(180deg);
+}
+
+.pricing-toggle:hover i {
+    color: var(--light-gold);
 }
 
 .pricing-features {
@@ -124,7 +159,7 @@ body {
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1rem;
-    color: var(--primary-blue);
+    color: var(--white);
     font-size: 1.1rem;
     line-height: 1.4;
 }
@@ -141,11 +176,11 @@ body {
     justify-content: center;
     gap: 0.75rem;
     background: var(--gold);
-    color: var(--white);
+    color: var(--deep-blue);
     padding: 1rem 2rem;
     border-radius: var(--radius-sm);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     margin-top: 2rem;
     transition: all 0.3s ease;
 }
@@ -154,6 +189,7 @@ body {
     background: var(--light-gold);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+    color: var(--deep-blue);
 }
 
 .pricing-button i {
