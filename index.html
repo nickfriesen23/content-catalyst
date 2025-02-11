@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Previous head section remains unchanged -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,15 +104,53 @@
                 padding: 40px;
             }
 
+            .host-image {
+                height: 400px; /* Fixed height for mobile */
+                width: 100%;
+                object-fit: cover;
+                object-position: center 20%; /* Position slightly towards the top */
+            }
+
             .space-image {
                 height: 300px;
             }
+
+            #hosts {
+                padding: 40px 0; /* Reduced padding on mobile */
+            }
+
+            .hosts-grid {
+                gap: 40px; /* Reduced gap on mobile */
+                margin-top: 30px;
+            }
+
+            .host-content h3 {
+                font-size: 24px; /* Slightly smaller heading on mobile */
+            }
+
+            .host-title {
+                font-size: 16px;
+                margin: 0 0 20px 0;
+            }
+
+            .host-description p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .host-image {
+                height: 300px; /* Even shorter on very small screens */
+            }
         }
     </style>
+    <!-- Rest of the head section remains unchanged -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+<!-- Rest of the HTML remains unchanged -->
 <body>
     <header class="header">
         <div class="container nav-container">
