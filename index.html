@@ -98,27 +98,38 @@
             }
         }
 
-        /* Behind the Scenes Section Styles */
+        /* Behind the Scenes Section Styles - Updated to match gallery style */
         .bts-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
             margin-top: 40px;
             padding: 0 20px;
         }
 
-        .bts-image {
+        .bts-image-container {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
-            object-position: center;
+            height: 0;
+            padding-bottom: 100%; /* Creates a 1:1 aspect ratio (square) */
+            position: relative;
             border-radius: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
-        .bts-image:hover {
-            transform: scale(1.02);
+        .bts-image-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Show the entire image */
+            object-position: center;
+            border-radius: 15px;
+            background-color: #f5f5f5; /* Light background color for transparent parts */
+        }
+
+        .bts-image-container:hover {
+            transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
@@ -186,6 +197,12 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
+        .space-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
         .space-image {
             width: 100%;
             height: 500px;
@@ -211,14 +228,63 @@
             margin: 0 auto;
         }
 
+        /* Training Examples Styles */
+        .training-examples {
+            margin-top: 80px;
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        .training-image {
+            width: 100%;
+            /* Changed height from fixed 300px to 0 with padding-bottom for aspect ratio */
+            height: 0;
+            padding-bottom: 100%; /* Creates a 1:1 aspect ratio (square) */
+            position: relative;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensures content stays within the rounded corners */
+        }
+
+        .training-image img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* Changed from 'cover' to 'contain' to show the entire image */
+            object-fit: contain;
+            object-position: center;
+            border-radius: 15px;
+            background-color: #f5f5f5; /* Light background color for transparent parts */
+        }
+
+        .training-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
         /* Enhanced Launch Package Styling */
+        .pricing-cards-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
         .pricing-card {
             background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             border-radius: 30px;
             padding: 40px;
             color: white;
             max-width: 600px;
-            margin: 0 auto;
+            width: 100%;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             transform: translateY(0);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -298,7 +364,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .video-container iframe {
+        .video-container iframe, 
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
@@ -339,6 +406,104 @@
             color: #38b2ac;
         }
 
+        /* Limited Time Offer Banner */
+        .limited-offer-banner {
+            background: linear-gradient(135deg, #38b2ac 0%, #2c9a94 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .limited-offer-banner span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .limited-offer-banner:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            z-index: 1;
+        }
+
+        /* AI Section styling */
+        .ai-highlight {
+            background: rgba(56, 178, 172, 0.1);
+            border-left: 4px solid #38b2ac;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .ai-highlight h4 {
+            color: #38b2ac;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .check-item i {
+            color: #38b2ac;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        /* Past clients section */
+        .past-clients {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        /* Enhanced client showcase titles */
+        .client-showcase-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2d3748;
+            text-align: center;
+            margin: 40px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .client-showcase-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #38b2ac;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        .showcase-subtitle {
+            font-size: 20px;
+            color: #4a5568;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
         @media (max-width: 1024px) {
             .host-card {
                 grid-template-columns: 1fr;
@@ -359,19 +524,19 @@
                 height: 300px;
             }
 
+            .space-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-info {
                 flex-direction: column;
                 gap: 20px;
             }
 
-            .bts-grid {
+            .bts-grid, .training-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
                 padding: 0 15px;
-            }
-
-            .bts-image {
-                height: 300px;
             }
 
             .hero h1 {
@@ -400,13 +565,9 @@
                 font-size: 16px;
             }
 
-            .bts-grid {
+            .bts-grid, .training-grid {
                 grid-template-columns: 1fr;
                 padding: 0 10px;
-            }
-
-            .bts-image {
-                height: 350px;
             }
 
             .hero h1 {
@@ -420,6 +581,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="limited-offer-banner">
+        <span>🔥 LIMITED TIME: AI Upgrade worth $2000+ for the first 5 sign-ups! 🔥</span>
+    </div>
+    
     <section class="hero">
         <div class="animated-background">
             <div class="floating-ball"></div>
@@ -428,9 +593,9 @@
             <div class="hero-content">
                 <h1>
                     <span class="static-text">Content for</span>
-                    <span class="dynamic-text"></span>
+                    <span class="dynamic-text">content upgrade?</span>
                 </h1>
-                <p style="color: #ffffff !important;">Professional content creation, coaching, and community support to elevate your online presence and connect authentically with your audience.</p>
+                <p style="color: #ffffff !important;">Stand out with edited reels that promote status, portrait shots that actually feel like you, epic B-roll clips, and AI expertise that alone would justify the price.</p>
                 <a href="#packages" class="cta-button">
                     Get Started
                     <i class="fas fa-arrow-right"></i>
@@ -443,7 +608,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">How It Works</h2>
-                <p class="section-subtitle">A curated content creation experience combining networking, professional media production, and delicious BBQ.</p>
+                <p class="section-subtitle">We're mixing a classy studio-packed home with networking and a top-notch team to create content that stands out above the AI-generated noise.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -451,22 +616,26 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Network & Connect</h3>
-                    <p>Arrive and enjoy home-smoked BBQ while networking with fellow founders and content creators. Our photographer captures candid social photos throughout this time.</p>
+                    <p>Arrive and enjoy home-smoked BBQ while networking with fellow creators and entrepreneurs. Connect with like-minded professionals while our team captures candid moments throughout.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-camera"></i>
                     </div>
                     <h3>Professional Photos</h3>
-                    <p>Get your dedicated photo session with our photographer, including studio-style headshots and lifestyle shots. Each guest is photographed individually to ensure personalized attention.</p>
+                    <p>Get a dedicated 30+ minute session with our professional photographer who has done thousands of shoots. Receive 20+ edited lifestyle photos both indoor and outdoor, including headshots you'll actually love.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-video"></i>
                     </div>
                     <h3>Your Content Session</h3>
-                    <p>Choose your style: be interviewed, film ads, or use our teleprompter for pre-determined content. Each guest pre-books a 30-minute slot to ensure a smooth, focused session.</p>
+                    <p>Enjoy 40 minutes of studio time with perfect lighting for your brand. Choose from podcast-style interviews, shooting ads with our teleprompter, or filming hooks. Plus, get 10+ professional video B-roll shots.</p>
                 </div>
+            </div>
+            <div class="ai-highlight">
+                <h4>AI Upgrade Special Offer</h4>
+                <p>For the first 5 people, you'll get an AI upgrade that's worth a minimum of $2000. We've spent the past 6 months fine-tuning one of the best photo generation models. After your photoshoot, you'll receive headshots of you in every background and shirt change imaginable – processed on our $100k supercomputer.</p>
             </div>
         </div>
     </section>
@@ -479,7 +648,7 @@
             </div>
             <div class="hosts-grid">
                 <div class="host-card">
-                    <img src="images/AI-Upgrade-2.png" alt="Nick Friesen" class="host-image">
+                    <img src="https://nick-f.imgix.net/images/AI-Upgrade-2.png" alt="Nick Friesen" class="host-image">
                     <div class="host-content">
                         <h3>Nick Friesen</h3>
                         <p class="host-title">Founder of The Match Artist</p>
@@ -491,7 +660,7 @@
                     </div>
                 </div>
                 <div class="host-card">
-                    <img src="images/Network-4.png" alt="Allie Friesen" class="host-image">
+                    <img src="https://nick-f.imgix.net/images/Network-4.png" alt="Allie Friesen" class="host-image">
                     <div class="host-content">
                         <h3>Allie Friesen</h3>
                         <p class="host-title">Founder of The Wedding Artist</p>
@@ -503,7 +672,7 @@
                     </div>
                 </div>
                 <div class="host-card">
-                    <img src="images/david/david-9043.jpg" alt="David" class="host-image">
+                    <img src="https://nick-f.imgix.net/images/david/david-9043.jpg" alt="David" class="host-image">
                     <div class="host-content">
                         <h3>David</h3>
                         <p class="host-title">Executive Performance Coach</p>
@@ -516,7 +685,11 @@
                 </div>
             </div>
             <div class="space-showcase">
-                <img src="images/space/space-8588.jpg" alt="Our Creative Space" class="space-image">
+                <div class="space-grid">
+                    <img src="https://nick-f.imgix.net/images/space/space-8598.jpg" alt="Our Creative Space" class="space-image">
+                    <img src="https://nick-f.imgix.net/images/space/space-9283.jpg?fm=webp&q=50" alt="Our Creative Space" class="space-image">
+                    
+                </div>
                 <div class="space-content">
                     <h3>Our Creative Space</h3>
                     <p>A thoughtfully designed environment where every corner serves as the perfect backdrop for your content creation journey. From cozy interview nooks to professional studio setups, our space is crafted to inspire and elevate your brand story.</p>
@@ -529,10 +702,14 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Who is this for?</h2>
-                <p class="section-subtitle">See if this experience is right for you</p>
+                <p class="section-subtitle">We created this experience for entrepreneurs and creators who want unique content that stands out.</p>
             </div>
             <div class="video-container">
                 <iframe src="https://player.vimeo.com/video/1059370272" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div style="max-width: 800px; margin: 30px auto; padding: 0 20px;">
+                <p>AI-directed and produced content is obviously on the rise at a massive scale. There's nothing wrong with it, but we want to make sure <strong>your unique content stands out above the rest</strong>.</p>
+                <p>Come hang out with us for content day where you get more content than others, and you're not on the hook for thousands of dollars.</p>
             </div>
         </div>
     </section>
@@ -543,13 +720,41 @@
                 <h2 class="section-title">Behind the Scenes</h2>
                 <p class="section-subtitle">Take a peek into our content creation process and the magic that happens during our sessions.</p>
             </div>
-            <div class="bts-grid">
-                <img src="images/bts/bts-8842.jpg" alt="Behind the Scenes" class="bts-image">
-                <img src="images/bts/bts-8847.jpg" alt="Behind the Scenes" class="bts-image">
-                <img src="images/bts/bts-8848.jpg" alt="Behind the Scenes" class="bts-image">
-                <img src="images/bts/bts-8915.jpg" alt="Behind the Scenes" class="bts-image">
-                <img src="images/bts/bts-8933.jpg" alt="Behind the Scenes" class="bts-image">
-                <img src="images/bts/bts-9270.jpg" alt="Behind the Scenes" class="bts-image">
+            <div id="bts-grid" class="bts-grid">
+                <!-- Behind the scenes images will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="past-clients" class="section past-clients">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Past Clients</h2>
+                <p class="section-subtitle">See some examples of our previous work and the results we've delivered.</p>
+            </div>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h3 class="client-showcase-title">Jon's Transformation Journey</h3>
+                <p class="showcase-subtitle">From Entrepreneur to Visual Brand Ambassador</p>
+            </div>
+            <div id="jon-grid" class="training-grid">
+                <!-- Jon's images will be dynamically added here -->
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/1060514932" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h3 class="client-showcase-title">Joel's Brand Evolution</h3>
+                <p class="showcase-subtitle">Capturing Authentic Leadership Presence</p>
+            </div>
+            <div id="joel-grid" class="training-grid">
+                <!-- Joel's images will be dynamically added here -->
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/1060514909" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -560,25 +765,50 @@
                 <h2 class="section-title">Join the Party</h2>
                 <p class="section-subtitle">Transform your brand with our signature content creation experience</p>
             </div>
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="pricing-name">Launch Package</h3>
-                    <div class="pricing-price">$497</div>
+            <div class="pricing-cards-container">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Content Day Package</h3>
+                        <div class="pricing-price">$497</div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-video"></i>40 minutes of professional studio time (podcast interview, teleprompter ads, or hooks)</li>
+                            <li><i class="fas fa-camera"></i>30+ minutes with a professional photographer capturing you 1-on-1</li>
+                            <li><i class="fas fa-image"></i>20+ edited, professional lifestyle photos (indoor, outdoor, and headshot style)</li>
+                            <li><i class="fas fa-film"></i>10+ professional video B-roll shots of you</li>
+                            <li><i class="fas fa-robot"></i>For first 5 people: AI upgrade worth $2000+ (unlimited backgrounds and outfit changes)</li>
+                            <li><i class="fas fa-users"></i>Networking with creators + delicious home-smoked BBQ</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/00gg1jbOla9t3MAaEF" class="pricing-button">
+                            Reserve Your Spot Now
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="pricing-features">
-                    <ul>
-                        <li><i class="fas fa-video"></i>30-minute professional interview (video), raw footage delivered</li>
-                        <li><i class="fas fa-camera"></i>15-minute professional photoshoot (headshots, full body, lifestyle)</li>
-                        <li><i class="fas fa-edit"></i>Professionally edited photos (digital delivery)</li>
-                        <li><i class="fas fa-share-alt"></i>Social media photos from the event</li>
-                        <li><i class="fas fa-users"></i>Access to networking and BBQ</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/00gg1jbOla9t3MAaEF" class="pricing-button">
-                        Join Now
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Custom Package</h3>
+                        <div class="pricing-price">Contact Us</div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-clock"></i>Extended filming or photography sessions</li>
+                            <li><i class="fas fa-calendar-alt"></i>Schedule a separate time that works for your needs</li>
+                            <li><i class="fas fa-user-check"></i>Personalized content planning consultation</li>
+                            <li><i class="fas fa-lightbulb"></i>Custom creative direction tailored to your brand</li>
+                            <li><i class="fas fa-project-diagram"></i>Specialized content strategy development</li>
+                            <li><i class="fas fa-star"></i>Premium editing and post-production options</li>
+                        </ul>
+                        <a href="mailto:nick@thematchartist.com" class="pricing-button">
+                            Request Custom Package
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 20px; font-style: italic; color: #4a5568;">Everyone says "our spots will go fast", and they absolutely will— especially for the AI upgrade.<br>Chat with David for more info.</p>
         </div>
     </section>
 
@@ -597,7 +827,116 @@
         </div>
     </section>
 
-    <!-- Replace the inline script with external script -->
+    <!-- Add the gallery randomization script -->
+    <script>
+        // Jon's photos array
+        const jonPhotos = [
+            "https://nick-f.imgix.net/images/jon-main-0125.jpg",
+            "https://nick-f.imgix.net/images/jon-main-0135.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9532.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9554.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9575.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9580.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9590.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9700.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9703.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9720.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9735.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9742.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9745.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9747.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9748.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9837.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9867.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9895.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9918.jpg",
+            "https://nick-f.imgix.net/images/jon-main-9927.jpg"
+        ];
+
+        // Joel's photos array
+        const joelPhotos = [
+            "https://nick-f.imgix.net/images/joel-main-0055.jpg",
+            "https://nick-f.imgix.net/images/joel-main-0060.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9321.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9331.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9337.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9353.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9365.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9418.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9439.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9463.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9481.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9488.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9626.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9786.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9796.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9798.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9814.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9817.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9940.jpg",
+            "https://nick-f.imgix.net/images/joel-main-9999.jpg"
+        ];
+
+        // Behind the Scenes photos array - using the existing images
+        const btsPhotos = [
+            "https://nick-f.imgix.net/images/bts/bts-8842.jpg",
+            "https://nick-f.imgix.net/images/bts/bts-8847.jpg",
+            "https://nick-f.imgix.net/images/bts/bts-8848.jpg",
+            "https://nick-f.imgix.net/images/bts/bts-8915.jpg",
+            "https://nick-f.imgix.net/images/bts/bts-8933.jpg",
+            "https://nick-f.imgix.net/images/bts/bts-9270.jpg",
+            "https://nick-f.imgix.net/images/david/david-9043.jpg", // Using available David images that already exist
+            "https://nick-f.imgix.net/images/AI-Upgrade-2.png",
+            "https://nick-f.imgix.net/images/Network-4.png",
+            "https://nick-f.imgix.net/images/space/space-8598.jpg",
+            "https://nick-f.imgix.net/images/space/space-9283.jpg"
+        ];
+
+        // Function to shuffle array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to populate grids with images
+        function populateGrid(gridId, photos, containerClass = 'training-image', altText = 'Photo') {
+            const grid = document.getElementById(gridId);
+            const shuffledPhotos = shuffleArray([...photos]); // Create a copy and shuffle
+            
+            // Clear existing content
+            grid.innerHTML = '';
+            
+            // Add photos to the grid (or fewer if less are available)
+            const numberOfPhotos = Math.min(12, shuffledPhotos.length);
+            
+            for (let i = 0; i < numberOfPhotos; i++) {
+                const container = document.createElement('div');
+                container.className = containerClass;
+                
+                const img = document.createElement('img');
+                img.src = shuffledPhotos[i];
+                img.alt = altText;
+                
+                container.appendChild(img);
+                grid.appendChild(container);
+            }
+        }
+
+        // Initialize when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            populateGrid('joel-grid', joelPhotos, 'training-image', 'Joel Training Example');
+            populateGrid('jon-grid', jonPhotos, 'training-image', 'Jon Training Example');
+            populateGrid('bts-grid', btsPhotos, 'bts-image-container', 'Behind the Scenes');
+        });
+    </script>
+
+    <!-- Animation script -->
     <script src="animation.js"></script>
+    
+    <!-- Lightbox script -->
+    <script src="lightbox.js"></script>
 </body>
 </html>

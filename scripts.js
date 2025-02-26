@@ -82,21 +82,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sample case studies data
     const caseStudies = [
         {
-            image: "images/placeholder.svg",
+            image: "https://nick-f.imgix.net/images/placeholder.svg",
             title: "Tech Startup Rebrand",
             description: "How we helped a growing tech company establish a professional brand presence.",
             client: "InnovateTech Solutions",
             results: ["300% increase in engagement", "150+ pieces of content"]
         },
         {
-            image: "images/placeholder.svg",
+            image: "https://nick-f.imgix.net/images/placeholder.svg",
             title: "Personal Brand Evolution",
             description: "Transforming a consultant's online presence for greater impact.",
             client: "Sarah Johnson Consulting",
             results: ["5x LinkedIn following", "10 speaking opportunities"]
         },
         {
-            image: "images/placeholder.svg",
+            image: "https://nick-f.imgix.net/images/placeholder.svg",
             title: "E-commerce Success Story",
             description: "Creating compelling product content that drives sales.",
             client: "StyleHub Fashion",
@@ -131,19 +131,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sample testimonials data
     const testimonials = [
         {
-            avatar: "images/placeholder.svg",
+            avatar: "https://nick-f.imgix.net/images/placeholder.svg",
             quote: "Content Catalyst transformed how I present myself online. The ongoing support and community have been invaluable.",
             author: "Emily Chen",
             role: "Tech Entrepreneur"
         },
         {
-            avatar: "images/placeholder.svg",
+            avatar: "https://nick-f.imgix.net/images/placeholder.svg",
             quote: "The pre-event coaching and post-production support made all the difference. Highly recommend!",
             author: "Marcus Rodriguez",
             role: "Business Coach"
         },
         {
-            avatar: "images/placeholder.svg",
+            avatar: "https://nick-f.imgix.net/images/placeholder.svg",
             quote: "Not just great photos and videos, but a complete content strategy that keeps delivering results.",
             author: "Lisa Thompson",
             role: "Marketing Director"
