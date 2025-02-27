@@ -833,7 +833,131 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Past Clients Section - Updated to match Hero styling */
+.past-clients {
+    background: linear-gradient(135deg, var(--deep-blue), var(--primary-blue));
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.past-clients .section-title {
+    color: var(--light-gold);
+}
+
+.past-clients .section-subtitle {
+    color: var(--white);
+}
+
+.client-showcase-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--light-gold);
+    text-align: center;
+    margin: 40px 0 20px;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+.client-showcase-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--light-gold);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.showcase-subtitle {
+    font-size: 20px;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+/* Enhanced hover effects for images */
+.training-image {
+    transition: all 0.4s ease-in-out;
+    transform-origin: center;
+}
+
+.training-image:hover {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+.training-image img {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease-in-out;
+}
+
+.training-image:hover img {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Add floating animation to images */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.host-card {
+    transition: all 0.5s ease;
+}
+
+.host-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Visually engaging additions */
+.animated-gradient {
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(242, 183, 5, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 8s infinite ease-in-out;
+    z-index: 0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Enhanced video container */
+.video-container {
+    transition: all 0.4s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
 /* Mobile Navigation */
 .mobile-nav-toggle {
     display: none;
