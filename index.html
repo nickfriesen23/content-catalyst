@@ -141,6 +141,39 @@
             gap: 15px;
             margin-top: 40px;
             padding: 0 20px;
+            max-width: 100%;
+            margin-bottom: 20px; /* Reduced bottom margin for button spacing */
+        }
+
+        /* See More Photos Button Styles */
+        .see-more-button {
+            display: block;
+            background: #38b2ac;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 auto 40px;
+            width: 200px;
+            text-align: center;
+            transition: background 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .see-more-button:hover {
+            background: #2c9a94;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .see-more-button i {
+            margin-left: 8px;
+        }
+
+        .hidden-photos {
+            display: none;
         }
 
         .portfolio-image-container {
@@ -1022,7 +1055,7 @@
                 <p class="section-subtitle">A collection of our professional photography showcasing the quality and style of our work.</p>
             </div>
             <div id="portfolio-grid" class="portfolio-grid">
-                <!-- Portfolio images will be dynamically added here -->
+                <!-- Portfolio images will be dynamically added here by the JavaScript -->
             </div>
         </div>
     </section>
@@ -1181,95 +1214,121 @@
 
     <!-- Add the gallery randomization script -->
     <script>
-        // Jon's photos array
+        // Photo arrays organized by category for easy editing
         const jonPhotos = [
-            "https://nick-f.imgix.net/images/jon-main-0125.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-0135.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/jon-main-9532.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9554.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9575.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9580.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9590.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9700.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/jon-main-9703.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9720.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/jon-main-9735.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9742.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9745.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9747.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9748.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9837.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9867.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/jon-main-9580.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/jon-main-9720.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/jon-main-9895.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9918.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/jon-main-9927.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/ComfyUI_00245__Original.png?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/ComfyUI_00115__Original.png?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/ComfyUI_00106__Original.png?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/ComfyUI_00078__Original.png?fm=webp&q=50"
+            "https://nick-f.imgix.net/images/jon-main-9747.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/jon-main-9700.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/jon-main-9575.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/jon-main-9745.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/jon-main-9748.jpg?fm=webp&q=50"
         ];
-
-        // Joel's photos array
+        
         const joelPhotos = [
-            "https://nick-f.imgix.net/images/joel-main-0055.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-0060.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9321.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/joel-main-9331.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9337.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9353.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9365.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/joel-main-9418.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9439.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-9488.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-9786.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-9353.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-9798.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-9940.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-9999.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/joel-main-9463.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/joel-main-9481.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9488.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9626.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9786.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9796.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9798.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9814.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9817.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9940.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/joel-main-9999.jpg?fm=webp&q=50"
+            "https://nick-f.imgix.net/images/joel-main-9439.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-0060.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/joel-main-9817.jpg?fm=webp&q=50"
         ];
-
-        // Finetuned Upgrade photos array
-        const finetunedPhotos = [
-            "https://nick-f.imgix.net/images/ComfyUI_00294__Original.png?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/ComfyUI_00273__Original.png?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/ComfyUI_00260__Original.png?fm=webp&q=50"
+        
+        const davidPhotos = [
+            "https://nick-f.imgix.net/images/david-extra-9048.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9145.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9188.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9173.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9194.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9165.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9005.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9075.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9155.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-8993.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9024.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-9097.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/david-extra-8990.jpg?fm=webp&q=50"
         ];
-
-        // Photo Portfolio photos array - using the existing images from bts and adding new ones
-        const portfolioPhotos = [
-            // Original portfolio photos
-            "https://nick-f.imgix.net/images/bts/bts-8842.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/bts/bts-8847.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/bts/bts-8848.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/bts/bts-8915.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/bts/bts-8933.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/bts/bts-9270.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/david/david-9043.jpg?fm=webp&q=50",
+        
+        const tmaPhotos = [
+            "https://nick-f.imgix.net/images/Anais-TMA-203.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/matchartist-0141.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/matchartist-8459.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tma-best-9762.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/favs-6479.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tma-favs-9811.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tmafav-1046.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tmafavs-7769.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tma-fav-7256.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/favs-0980.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tma-best-3519.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/IMG_5980.jpg?fm=webp&q=50"
+        ];
+        
+        const aiPhotos = [
+            "https://nick-f.imgix.net/images/AI-Upgrade-1.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ai-gen-1.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/Network-1.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/Network-3.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ai-gen-4.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/Network-5.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ai-gen-3.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/AI-Upgrade-3.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/Network-2.png?fm=webp&q=50",
             "https://nick-f.imgix.net/images/AI-Upgrade-2.png?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/Network-4.png?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/space/space-8598.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/space/space-9283.jpg?fm=webp&q=50",
-            
-            // New images with imgix format
-            "https://nick-f.imgix.net/images/66ce4fecb62bba5ada639aae_jake_Large.jpeg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/660e040fbaaf1d9438b2372e_brodie-vogler-182.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/669e9d126c5ab0f8baeffde6_charlie-tma-6073.avif?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/669e9d1309bd25fd254579fa_anwar_thematchart.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/66bbefcb8b8e32f869fd7f6b_tma-4526.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/66ce46eddc91669ec513bb6b_josh-tma-5088.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/66ce558e0595c1beecf2a141_brodie-vogler-2380.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/gasten-tma-9079.avif?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/tejesh-tma-0033.avif?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/tinder-dating-profile.avif?fm=webp&q=50"
+            "https://nick-f.imgix.net/images/Network-6.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/AI-Upgrade-4.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ai-gen-2.png?fm=webp&q=50"
         ];
-
-        // Combine all photos for the portfolio section
-        const allPhotos = [...portfolioPhotos, ...jonPhotos, ...joelPhotos, ...finetunedPhotos];
+        
+        const comfyUIPhotos = [
+            "https://nick-f.imgix.net/images/ComfyUI_00078__Original.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ComfyUI_00106__Original.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ComfyUI_00245__Original.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ComfyUI_00115__Original.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ComfyUI_00260__Original.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ComfyUI_00273__Original.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/ComfyUI_00294__Original.png?fm=webp&q=50"
+        ];
+        
+        const miscPhotos = [
+            "https://nick-f.imgix.net/images/669e9d0fbaa81c8438b2372e_brodie-vogler-1823.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/669e9d126c5ab0f8baeffde6_charlie-tma-6073.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/669e9d1309bd25fd254579fa_anwar_thematchartist-5666.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/66bbefcb8b8e32f869fd7f6b_tma-4526.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/66ce46ecb62bba5ada639aae_jake%20Large.jpeg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/66ce46eddc91669ec513bb6b_josh-tma-5088%20Large.jpeg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/66ce558d0595c1beecf2a141_brodie-vogler-2388%20Large.jpeg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/justen-tma-9079.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tejesh-tma-0033.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tinder-dating-profile.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/WhatsApp%20Image%202025-02-24%20at%2012.39.55_f622a680.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/IMG_6442.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/IMG_6443.png?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/IMG_6444.png?fm=webp&q=50"
+        ];
+        
+        // Combine all photo arrays into one array
+        const allPhotos = [
+            ...jonPhotos,
+            ...joelPhotos,
+            ...davidPhotos,
+            ...tmaPhotos,
+            ...aiPhotos,
+            ...comfyUIPhotos,
+            ...miscPhotos
+        ];
 
         // Function to shuffle array (Fisher-Yates algorithm)
         function shuffleArray(array) {
@@ -1281,17 +1340,19 @@
         }
 
         // Function to populate grids with images
-        function populateGrid(gridId, photos, containerClass = 'training-image', altText = 'Photo') {
+        function populateGrid(gridId, photos, containerClass = 'training-image', altText = 'Photo', initialLimit = null) {
             const grid = document.getElementById(gridId);
-            const shuffledPhotos = shuffleArray([...photos]); // Create a copy and shuffle
+            // Create a copy and shuffle - this ensures different random photos each page load
+            const shuffledPhotos = shuffleArray([...photos]);
             
             // Clear existing content
             grid.innerHTML = '';
             
-            // Add photos to the grid (or fewer if less are available)
-            const numberOfPhotos = Math.min(12, shuffledPhotos.length);
+            // Determine how many photos to show initially
+            const photosToShow = initialLimit ? Math.min(initialLimit, shuffledPhotos.length) : shuffledPhotos.length;
             
-            for (let i = 0; i < numberOfPhotos; i++) {
+            // Add initial photos to the grid
+            for (let i = 0; i < photosToShow; i++) {
                 const container = document.createElement('div');
                 container.className = containerClass;
                 
@@ -1301,6 +1362,58 @@
                 
                 container.appendChild(img);
                 grid.appendChild(container);
+            }
+            
+            // If we have more photos than the initial limit, add the remaining photos as hidden
+            if (initialLimit && shuffledPhotos.length > initialLimit) {
+                // Create a container for hidden photos
+                const hiddenContainer = document.createElement('div');
+                hiddenContainer.className = 'hidden-photos';
+                hiddenContainer.id = `${gridId}-hidden`;
+                
+                // Add the remaining photos to the hidden container
+                for (let i = initialLimit; i < shuffledPhotos.length; i++) {
+                    const container = document.createElement('div');
+                    container.className = containerClass;
+                    
+                    const img = document.createElement('img');
+                    img.src = shuffledPhotos[i];
+                    img.alt = altText;
+                    
+                    container.appendChild(img);
+                    hiddenContainer.appendChild(container);
+                }
+                
+                // Add the hidden container after the grid
+                grid.parentNode.insertBefore(hiddenContainer, grid.nextSibling);
+                
+                // Create and add the "See More Photos" button
+                const seeMoreButton = document.createElement('button');
+                seeMoreButton.className = 'see-more-button';
+                seeMoreButton.innerHTML = 'See More Photos <i class="fas fa-chevron-down"></i>';
+                seeMoreButton.id = `${gridId}-see-more`;
+                
+                // Add click event to the button
+                seeMoreButton.addEventListener('click', function() {
+                    const hiddenPhotos = document.getElementById(`${gridId}-hidden`);
+                    
+                    if (hiddenPhotos.classList.contains('hidden-photos')) {
+                        // Show hidden photos
+                        hiddenPhotos.classList.remove('hidden-photos');
+                        // Move all photos from hidden container to the main grid
+                        while (hiddenPhotos.firstChild) {
+                            grid.appendChild(hiddenPhotos.firstChild);
+                        }
+                        // Update button text
+                        this.innerHTML = 'Show Less Photos <i class="fas fa-chevron-up"></i>';
+                    } else {
+                        // Hide photos again (this would require re-populating the grid)
+                        populateGrid(gridId, photos, containerClass, altText, initialLimit);
+                    }
+                });
+                
+                // Add the button after the grid
+                grid.parentNode.insertBefore(seeMoreButton, hiddenContainer);
             }
         }
 
@@ -1317,8 +1430,8 @@
             // Preload all images
             preloadImages(allPhotos);
             
-            // Populate portfolio grid with all photos (randomized)
-            populateGrid('portfolio-grid', allPhotos, 'portfolio-image-container', 'Photo Portfolio');
+            // Populate portfolio grid with initial 6 photos (randomized)
+            populateGrid('portfolio-grid', allPhotos, 'portfolio-image-container', 'Photo Portfolio', 6);
             
             // Add animated gradient to sections for more visual engagement
             const sections = document.querySelectorAll('.section');
