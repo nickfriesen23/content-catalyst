@@ -134,8 +134,8 @@
             }
         }
 
-        /* Behind the Scenes Section Styles - Updated to match gallery style */
-        .bts-grid {
+        /* Photo Portfolio Section Styles - Updated from Behind the Scenes */
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
@@ -143,7 +143,7 @@
             padding: 0 20px;
         }
 
-        .bts-image-container {
+        .portfolio-image-container {
             width: 100%;
             height: 0;
             padding-bottom: 100%; /* Creates a 1:1 aspect ratio (square) */
@@ -154,7 +154,7 @@
             overflow: hidden;
         }
 
-        .bts-image-container img {
+        .portfolio-image-container img {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -164,7 +164,7 @@
             background-color: #f5f5f5; /* Light background color for transparent parts */
         }
 
-        .bts-image-container:hover {
+        .portfolio-image-container:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
@@ -426,7 +426,7 @@
         .pricing-features ul li {
             margin: 15px 0;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             font-size: 18px;
         }
 
@@ -693,7 +693,7 @@
                 gap: 20px;
             }
 
-            .bts-grid, .training-grid {
+            .portfolio-grid, .training-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
                 padding: 0 15px;
@@ -707,6 +707,28 @@
 
             .hero h1 {
                 font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Improved mobile styles for Jon and Joel's sections */
+            .client-showcase-title {
+                font-size: 28px;
+                margin: 30px 0 15px;
+            }
+            
+            .showcase-subtitle {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            
+            .training-grid {
+                gap: 10px;
+                padding: 0 10px;
+            }
+            
+            .video-container {
+                margin: 1.5rem auto;
             }
         }
 
@@ -731,7 +753,7 @@
                 font-size: 16px;
             }
 
-            .bts-grid, .training-grid, .video-grid {
+            .portfolio-grid, .training-grid, .video-grid {
                 grid-template-columns: 1fr;
                 padding: 0 10px;
             }
@@ -739,6 +761,20 @@
             .hero h1 {
                 font-size: 2.2rem;
                 gap: 10px;
+            }
+            
+            /* Additional mobile improvements for Jon and Joel's sections */
+            .training-image {
+                margin-bottom: 10px;
+            }
+            
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-button i {
+                font-size: 24px;
             }
         }
     </style>
@@ -880,14 +916,14 @@
         </div>
     </section>
 
-    <section id="behind-scenes" class="section">
+    <section id="photo-portfolio" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Behind the Scenes</h2>
-                <p class="section-subtitle">Take a peek into our content creation process and the magic that happens during our sessions.</p>
+                <h2 class="section-title">Photo Portfolio</h2>
+                <p class="section-subtitle">A collection of our professional photography showcasing the quality and style of our work.</p>
             </div>
-            <div id="bts-grid" class="bts-grid">
-                <!-- Behind the scenes images will be dynamically added here -->
+            <div id="portfolio-grid" class="portfolio-grid">
+                <!-- Portfolio images will be dynamically added here -->
             </div>
         </div>
     </section>
@@ -1096,8 +1132,8 @@
             "https://nick-f.imgix.net/images/ComfyUI_00260__Original.png?fm=webp&q=50"
         ];
 
-        // Behind the Scenes photos array - using the existing images
-        const btsPhotos = [
+        // Photo Portfolio photos array - using the existing images from bts
+        const portfolioPhotos = [
             "https://nick-f.imgix.net/images/bts/bts-8842.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/bts/bts-8847.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/bts/bts-8848.jpg?fm=webp&q=50",
@@ -1155,13 +1191,13 @@
             }
             
             // Preload all images
-            preloadImages([...jonPhotos, ...joelPhotos, ...finetunedPhotos, ...btsPhotos]);
+            preloadImages([...jonPhotos, ...joelPhotos, ...finetunedPhotos, ...portfolioPhotos]);
             
             // Populate grids immediately
             populateGrid('joel-grid', joelPhotos, 'training-image', 'Joel Training Example');
             populateGrid('jon-grid', jonPhotos, 'training-image', 'Jon Training Example');
             populateGrid('finetuned-grid', finetunedPhotos, 'training-image', 'Finetuned Upgrade Example');
-            populateGrid('bts-grid', btsPhotos, 'bts-image-container', 'Behind the Scenes');
+            populateGrid('portfolio-grid', portfolioPhotos, 'portfolio-image-container', 'Photo Portfolio');
             
             // Add animated gradient to sections for more visual engagement
             const sections = document.querySelectorAll('.section');
