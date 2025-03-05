@@ -664,6 +664,88 @@
             z-index: 1001;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials .section-title {
+            color: #38b2ac;
+        }
+        
+        .testimonials .section-subtitle {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid #38b2ac;
+        }
+        
+        .testimonial-author {
+            flex-grow: 1;
+        }
+        
+        .testimonial-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+        }
+        
+        .testimonial-title {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 5px 0 0;
+        }
+        
+        .testimonial-content {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonial-video {
+            margin-top: 20px;
+        }
+
         @media (max-width: 1024px) {
             .host-card {
                 grid-template-columns: 1fr;
@@ -699,7 +781,7 @@
                 padding: 0 15px;
             }
             
-            .video-grid {
+            .video-grid, .testimonial-grid {
                 grid-template-columns: 1fr; /* Single column on tablets */
                 gap: 20px;
                 padding: 0 15px;
@@ -730,6 +812,15 @@
             .video-container {
                 margin: 1.5rem auto;
             }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
+            
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -753,7 +844,7 @@
                 font-size: 16px;
             }
 
-            .portfolio-grid, .training-grid, .video-grid {
+            .portfolio-grid, .training-grid, .video-grid, .testimonial-grid {
                 grid-template-columns: 1fr;
                 padding: 0 10px;
             }
@@ -775,6 +866,14 @@
             
             .play-button i {
                 font-size: 24px;
+            }
+            
+            .testimonial-name {
+                font-size: 16px;
+            }
+            
+            .testimonial-content {
+                font-size: 14px;
             }
         }
     </style>
@@ -928,33 +1027,49 @@
         </div>
     </section>
 
-    <section id="past-clients" class="section past-clients">
+    <section id="testimonials" class="section testimonials">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Past Clients</h2>
-                <p class="section-subtitle">See some examples of our previous work and the results we've delivered.</p>
+                <h2 class="section-title">Client Testimonials</h2>
+                <p class="section-subtitle">Hear what our clients have to say about their experience with us.</p>
             </div>
             
-            <div class="section-header" style="margin-top: 60px;">
-                <h3 class="client-showcase-title">Jon's Story</h3>
-            </div>
-            <div id="jon-grid" class="training-grid">
-                <!-- Jon's images will be dynamically added here -->
-            </div>
-            
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/1060514932" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-            <div class="section-header" style="margin-top: 60px;">
-                <h3 class="client-showcase-title">Joel's Story</h3>
-            </div>
-            <div id="joel-grid" class="training-grid">
-                <!-- Joel's images will be dynamically added here -->
-            </div>
-            
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/1060514909" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://nick-f.imgix.net/images/jon-main-9745.jpg?fm=webp&q=50" alt="Jon" class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-name">Jon</h4>
+                            <p class="testimonial-title">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The content day experience was incredible. The team captured my personality perfectly, and the photos and videos have been game-changers for my brand presence online."</p>
+                    </div>
+                    <div class="testimonial-video">
+                        <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/1060514932" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://nick-f.imgix.net/images/joel-main-9481.jpg?fm=webp&q=50" alt="Joel" class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-name">Joel</h4>
+                            <p class="testimonial-title">Business Coach</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Working with this team was one of the best decisions I've made for my business. The quality of content I received has elevated my brand and helped me connect with my audience on a deeper level."</p>
+                    </div>
+                    <div class="testimonial-video">
+                        <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/1060514909" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="section-header" style="margin-top: 60px;">
@@ -981,13 +1096,6 @@
                         <iframe src="https://player.vimeo.com/video/1060950534" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div>
-            
-            <div class="section-header" style="margin-top: 60px;">
-                <h3 class="client-showcase-title">Finetuned Upgrade</h3>
-            </div>
-            <div id="finetuned-grid" class="training-grid">
-                <!-- Finetuned Upgrade images will be dynamically added here -->
             </div>
         </div>
     </section>
@@ -1132,20 +1240,36 @@
             "https://nick-f.imgix.net/images/ComfyUI_00260__Original.png?fm=webp&q=50"
         ];
 
-        // Photo Portfolio photos array - using the existing images from bts
+        // Photo Portfolio photos array - using the existing images from bts and adding new ones
         const portfolioPhotos = [
+            // Original portfolio photos
             "https://nick-f.imgix.net/images/bts/bts-8842.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/bts/bts-8847.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/bts/bts-8848.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/bts/bts-8915.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/bts/bts-8933.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/bts/bts-9270.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/david/david-9043.jpg?fm=webp&q=50", // Using available David images that already exist
+            "https://nick-f.imgix.net/images/david/david-9043.jpg?fm=webp&q=50",
             "https://nick-f.imgix.net/images/AI-Upgrade-2.png?fm=webp&q=50",
             "https://nick-f.imgix.net/images/Network-4.png?fm=webp&q=50",
             "https://nick-f.imgix.net/images/space/space-8598.jpg?fm=webp&q=50",
-            "https://nick-f.imgix.net/images/space/space-9283.jpg?fm=webp&q=50"
+            "https://nick-f.imgix.net/images/space/space-9283.jpg?fm=webp&q=50",
+            
+            // New images with imgix format
+            "https://nick-f.imgix.net/images/66ce4fecb62bba5ada639aae_jake_Large.jpeg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/660e040fbaaf1d9438b2372e_brodie-vogler-182.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/669e9d126c5ab0f8baeffde6_charlie-tma-6073.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/669e9d1309bd25fd254579fa_anwar_thematchart.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/66bbefcb8b8e32f869fd7f6b_tma-4526.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/66ce46eddc91669ec513bb6b_josh-tma-5088.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/66ce558e0595c1beecf2a141_brodie-vogler-2380.jpg?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/gasten-tma-9079.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tejesh-tma-0033.avif?fm=webp&q=50",
+            "https://nick-f.imgix.net/images/tinder-dating-profile.avif?fm=webp&q=50"
         ];
+
+        // Combine all photos for the portfolio section
+        const allPhotos = [...portfolioPhotos, ...jonPhotos, ...joelPhotos, ...finetunedPhotos];
 
         // Function to shuffle array (Fisher-Yates algorithm)
         function shuffleArray(array) {
@@ -1191,13 +1315,10 @@
             }
             
             // Preload all images
-            preloadImages([...jonPhotos, ...joelPhotos, ...finetunedPhotos, ...portfolioPhotos]);
+            preloadImages(allPhotos);
             
-            // Populate grids immediately
-            populateGrid('joel-grid', joelPhotos, 'training-image', 'Joel Training Example');
-            populateGrid('jon-grid', jonPhotos, 'training-image', 'Jon Training Example');
-            populateGrid('finetuned-grid', finetunedPhotos, 'training-image', 'Finetuned Upgrade Example');
-            populateGrid('portfolio-grid', portfolioPhotos, 'portfolio-image-container', 'Photo Portfolio');
+            // Populate portfolio grid with all photos (randomized)
+            populateGrid('portfolio-grid', allPhotos, 'portfolio-image-container', 'Photo Portfolio');
             
             // Add animated gradient to sections for more visual engagement
             const sections = document.querySelectorAll('.section');
